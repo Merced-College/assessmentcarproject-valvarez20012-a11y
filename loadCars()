@@ -1,0 +1,43 @@
+import java.io.*;
+import java.util.*;
+
+public static ArrayList<Car> loadCars(String filename) {
+
+    ArrayList<Car> cars = new ArrayList<>();
+
+    try {
+        BufferedReader br = new BufferedReader(new FileReader(filename));
+
+        String line = br.readLine(); // skip header
+
+        while ((line = br.readLine()) != null) {
+
+            try {
+                String[] data = line.split(",");
+
+                int id = Integer.parseInt(data[0]);
+                String brand = data[1];
+                String model = data[2];
+                int year = Integer.parseInt(data[3]);
+                String fuel = data[4];
+                String color = data[5];
+                int mileage = Integer.parseInt(data[6]);
+
+                Car car = new Car(id, brand, model, year, fuel, color, mileage);
+                cars.add(car);
+
+            } catch (Exception e) {
+                // skip malformed rows safely
+            }
+        }
+
+        br.close();
+
+    } catch (Exception e) {
+        System.out.println("Error reading file.");
+    }
+
+    System.out.println("Total cars loaded: " + cars.size());
+
+    return cars;
+}
