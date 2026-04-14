@@ -1,18 +1,42 @@
-public static void selectionSortBrand(ArrayList<Car> cars) {
+import java.util.*;
 
-    for (int i = 0; i < cars.size() - 1; i++) {
+public class SimpleSort {
 
-        int minIndex = i;
+    public static void selectionSortBrand(ArrayList<Car> cars) {
 
-        for (int j = i + 1; j < cars.size(); j++) {
+        for (int i = 0; i < cars.size() - 1; i++) {
 
-            if (cars.get(j).getBrand().compareToIgnoreCase(cars.get(minIndex).getBrand()) < 0) {
-                minIndex = j;
+            int minIndex = i;
+
+            for (int j = i + 1; j < cars.size(); j++) {
+
+                if (cars.get(j).getBrand().compareToIgnoreCase(cars.get(minIndex).getBrand()) < 0) {
+                    minIndex = j;
+                }
             }
-        }
 
-        Car temp = cars.get(i);
-        cars.set(i, cars.get(minIndex));
-        cars.set(minIndex, temp);
+            Car temp = cars.get(i);
+            cars.set(i, cars.get(minIndex));
+            cars.set(minIndex, temp);
+        }
+    }
+
+    public static void selectionSortYear(ArrayList<Car> cars) {
+
+        for (int i = 0; i < cars.size() - 1; i++) {
+
+            int minIndex = i;
+
+            for (int j = i + 1; j < cars.size(); j++) {
+
+                if (cars.get(j).getYear() < cars.get(minIndex).getYear()) {
+                    minIndex = j;
+                }
+            }
+
+            Car temp = cars.get(i);
+            cars.set(i, cars.get(minIndex));
+            cars.set(minIndex, temp);
+        }
     }
 }
