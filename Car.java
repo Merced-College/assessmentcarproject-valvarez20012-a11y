@@ -1,25 +1,24 @@
 public class Car {
-
-    private int id;
+    private int carID;
     private String brand;
     private String model;
     private int year;
     private String fuelType;
     private String color;
-    private int mileage;
+    private double mileageKmpl;
 
-    public Car(int id, String brand, String model, int year, String fuelType, String color, int mileage) {
-        this.id = id;
+    public Car(int carID, String brand, String model, int year, String fuelType, String color, double mileageKmpl) {
+        this.carID = carID;
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.fuelType = fuelType;
         this.color = color;
-        this.mileage = mileage;
+        this.mileageKmpl = mileageKmpl;
     }
 
-    public int getId() {
-        return id;
+    public int getCarID() {
+        return carID;
     }
 
     public String getBrand() {
@@ -42,11 +41,13 @@ public class Car {
         return color;
     }
 
-    public int getMileage() {
-        return mileage;
+    public double getMileageKmpl() {
+        return mileageKmpl;
     }
 
+    @Override
     public String toString() {
-        return id + " | " + brand + " | " + model + " | " + year + " | " + fuelType + " | " + color + " | " + mileage;
+        return carID + ", " + brand + ", " + model + ", " + year + ", " +
+               fuelType + ", " + color + ", " + mileageKmpl + " kmpl";
     }
 }
